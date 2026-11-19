@@ -1,0 +1,9 @@
+
+# Compiled executable
+hash_table
+
+# Object files
+*.o
+
+# macOS system files
+.DS_Store
