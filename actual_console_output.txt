@@ -1,0 +1,79 @@
+MIT ACADEMY OF ENGINEERING - DATA STRUCTURES IA 3 (Q2)
+PRN: 202501100053
+Scenario: Student Marks
+Seed S: 53
+Hash function: Mid-Square Method
+Collision handling: Separate Chaining
+Table size m: 23 (chosen prime size)
+Rule: h(k) = middle-two-digits(k*k) mod 23
+
+Personalized dataset (20 marks): 53, 66, 79, 92, 5, 18, 31, 44, 57, 70, 83, 96, 9, 22, 35, 48, 61, 74, 87, 0
+
+INSERTION TRACE
+Step  1 | key=53 | square=2809 | padded=2809 | middle=80 | bucket=11
+   State: 11: 53
+Step  2 | key=66 | square=4356 | padded=4356 | middle=35 | bucket=12
+   State: 11: 53 | 12: 66
+Step  3 | key=79 | square=6241 | padded=6241 | middle=24 | bucket=1
+   State: 1: 79 | 11: 53 | 12: 66
+Step  4 | key=92 | square=8464 | padded=8464 | middle=46 | bucket=0
+   State: 0: 92 | 1: 79 | 11: 53 | 12: 66
+Step  5 | key= 5 | square=25 | padded=0025 | middle=02 | bucket=2
+   State: 0: 92 | 1: 79 | 2: 5 | 11: 53 | 12: 66
+Step  6 | key=18 | square=324 | padded=0324 | middle=32 | bucket=9
+   State: 0: 92 | 1: 79 | 2: 5 | 9: 18 | 11: 53 | 12: 66
+Step  7 | key=31 | square=961 | padded=0961 | middle=96 | bucket=4
+   State: 0: 92 | 1: 79 | 2: 5 | 4: 31 | 9: 18 | 11: 53 | 12: 66
+Step  8 | key=44 | square=1936 | padded=1936 | middle=93 | bucket=1
+   State: 0: 92 | 1: 79 -> 44 | 2: 5 | 4: 31 | 9: 18 | 11: 53 | 12: 66
+Step  9 | key=57 | square=3249 | padded=3249 | middle=24 | bucket=1
+   State: 0: 92 | 1: 79 -> 44 -> 57 | 2: 5 | 4: 31 | 9: 18 | 11: 53 | 12: 66
+Step 10 | key=70 | square=4900 | padded=4900 | middle=90 | bucket=21
+   State: 0: 92 | 1: 79 -> 44 -> 57 | 2: 5 | 4: 31 | 9: 18 | 11: 53 | 12: 66 | 21: 70
+Step 11 | key=83 | square=6889 | padded=6889 | middle=88 | bucket=19
+   State: 0: 92 | 1: 79 -> 44 -> 57 | 2: 5 | 4: 31 | 9: 18 | 11: 53 | 12: 66 | 19: 83 | 21: 70
+Step 12 | key=96 | square=9216 | padded=9216 | middle=21 | bucket=21
+   State: 0: 92 | 1: 79 -> 44 -> 57 | 2: 5 | 4: 31 | 9: 18 | 11: 53 | 12: 66 | 19: 83 | 21: 70 -> 96
+Step 13 | key= 9 | square=81 | padded=0081 | middle=08 | bucket=8
+   State: 0: 92 | 1: 79 -> 44 -> 57 | 2: 5 | 4: 31 | 8: 9 | 9: 18 | 11: 53 | 12: 66 | 19: 83 | 21: 70 -> 96
+Step 14 | key=22 | square=484 | padded=0484 | middle=48 | bucket=2
+   State: 0: 92 | 1: 79 -> 44 -> 57 | 2: 5 -> 22 | 4: 31 | 8: 9 | 9: 18 | 11: 53 | 12: 66 | 19: 83 | 21: 70 -> 96
+Step 15 | key=35 | square=1225 | padded=1225 | middle=22 | bucket=22
+   State: 0: 92 | 1: 79 -> 44 -> 57 | 2: 5 -> 22 | 4: 31 | 8: 9 | 9: 18 | 11: 53 | 12: 66 | 19: 83 | 21: 70 -> 96 | 22: 35
+Step 16 | key=48 | square=2304 | padded=2304 | middle=30 | bucket=7
+   State: 0: 92 | 1: 79 -> 44 -> 57 | 2: 5 -> 22 | 4: 31 | 7: 48 | 8: 9 | 9: 18 | 11: 53 | 12: 66 | 19: 83 | 21: 70 -> 96 | 22: 35
+Step 17 | key=61 | square=3721 | padded=3721 | middle=72 | bucket=3
+   State: 0: 92 | 1: 79 -> 44 -> 57 | 2: 5 -> 22 | 3: 61 | 4: 31 | 7: 48 | 8: 9 | 9: 18 | 11: 53 | 12: 66 | 19: 83 | 21: 70 -> 96 | 22: 35
+Step 18 | key=74 | square=5476 | padded=5476 | middle=47 | bucket=1
+   State: 0: 92 | 1: 79 -> 44 -> 57 -> 74 | 2: 5 -> 22 | 3: 61 | 4: 31 | 7: 48 | 8: 9 | 9: 18 | 11: 53 | 12: 66 | 19: 83 | 21: 70 -> 96 | 22: 35
+Step 19 | key=87 | square=7569 | padded=7569 | middle=56 | bucket=10
+   State: 0: 92 | 1: 79 -> 44 -> 57 -> 74 | 2: 5 -> 22 | 3: 61 | 4: 31 | 7: 48 | 8: 9 | 9: 18 | 10: 87 | 11: 53 | 12: 66 | 19: 83 | 21: 70 -> 96 | 22: 35
+Step 20 | key= 0 | square=0 | padded=0000 | middle=00 | bucket=0
+   State: 0: 92 -> 0 | 1: 79 -> 44 -> 57 -> 74 | 2: 5 -> 22 | 3: 61 | 4: 31 | 7: 48 | 8: 9 | 9: 18 | 10: 87 | 11: 53 | 12: 66 | 19: 83 | 21: 70 -> 96 | 22: 35
+
+FINAL HASH TABLE (all 23 buckets)
+ 0 : 92 -> 0
+ 1 : 79 -> 44 -> 57 -> 74
+ 2 : 5 -> 22
+ 3 : 61
+ 4 : 31
+ 5 : NULL
+ 6 : NULL
+ 7 : 48
+ 8 : 9
+ 9 : 18
+10 : 87
+11 : 53
+12 : 66
+13 : NULL
+14 : NULL
+15 : NULL
+16 : NULL
+17 : NULL
+18 : NULL
+19 : 83
+20 : NULL
+21 : 70 -> 96
+22 : 35
+
+Insertion complete: 20 personalized values processed.

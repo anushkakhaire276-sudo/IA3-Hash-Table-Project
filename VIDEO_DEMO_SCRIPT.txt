@@ -1,0 +1,22 @@
+SUGGESTED 4-MINUTE LIVE DEMO SCRIPT
+
+0:00-0:30 | Introduction
+"Hello, this is my Data Structures Internal Activity 3, Question 2. My PRN is 202501100053. Since PRN mod 3 is 1, my scenario is Student Marks. My PRN is odd, so I use the Mid-Square hash function. Since PRN mod 2 is 1, I use Separate Chaining."
+
+0:30-1:00 | Personalization
+"The last four digits of my PRN give seed S = 53. Using v[i] = (S + 13*i) mod 100 for i from 0 to 19, I get these 20 marks: 53, 66, 79, 92, 5, 18, 31, 44, 57, 70, 83, 96, 9, 22, 35, 48, 61, 74, 87, and 0."
+
+1:00-1:45 | Hash function
+"Question 2 does not state a table-size rule, so I selected prime table size m = 23. For each key, I square it, pad the square to four digits, take its middle two digits, and then take modulo 23. For example, 53 squared is 2809. The middle two digits are 80, and 80 modulo 23 gives bucket 11."
+
+1:45-2:45 | Run the program
+Run ./hash_table in the terminal.
+"The program prints the calculation for every key and then prints the table state after each insertion. When two keys map to the same bucket, separate chaining stores them in the same linked sequence/vector chain in insertion order. For example, keys 79, 44, 57, and 74 all go to bucket 1."
+
+2:45-3:30 | Final table and trace-match
+"The final table has 23 buckets. The non-empty chains are shown, while unused buckets show NULL. I compared every calculated bucket with the program output. All 20 bucket indices and the insertion order match my predicted trace."
+
+3:30-4:00 | Closing
+"This demonstrates the PRN-based dataset generation, Mid-Square hashing, and collision resolution using Separate Chaining. Thank you."
+
+Speak naturally and show the program running live. Do not edit the recording. Replace any wording that does not match your final code or instructor's requirements.
